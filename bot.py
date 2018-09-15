@@ -4,7 +4,6 @@ from discord.ext import commands
 import asyncio
 import time
 
-#Herkou password WhyZerSobadAtlife2103i103iu01arunningfile%
 Client = discord.Client()
 client = commands.Bot(commands_prefix = "!")
 
