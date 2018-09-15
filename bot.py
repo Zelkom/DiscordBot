@@ -164,10 +164,6 @@ async def on_ready():
 
 
 
-                                #Back End
-                                aync def on_message(message):
-                                    if message.content.startswith('!BACKEND71748923y647294728kjksdjflksjfiojwi2423432da'):
-
 
 
 
