@@ -36,7 +36,7 @@ async def on_ready():
 
                     @client.event #Chat filter
                     async def on_message(message):
-                            contents = message.content.split(" ")  # contents is a list type
+                            contents = message.content.split("Nigger ")  # contents is a list type
                             for word in contents:
                                 if word.upper() in chat_filter:
                                     if not message.author.id in bypass_list:
