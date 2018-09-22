@@ -4,7 +4,7 @@ from discord.ext import commands
 import asyncio
 import time
 
-
+#Herkou password WhyZerSobadAtlife2103i103iu01arunningfile%
 Client = discord.Client()
 client = commands.Bot(commands_prefix = "!")
 
@@ -12,48 +12,42 @@ client = commands.Bot(commands_prefix = "!")
 async def on_ready():
     print("Bot is online")
 
-    @client.event  # Bot Moderator Check
+    @bot.command(pass_context=True)
+    @commands.has_permissions(kick_members=True)
+    async def kick(ctx, user: discord.Member):
 
-    await client.send_message(message.channel, "You Can not perfrom this command!")
-    if message.content.upper().startswith('!whois'):
-        if "370000651352014850" in [role.id for role in message.author.roles]:
-            await client.send_message(message.channel
-            "You are a bot moderator")
-            else:
-            await client.send_message(message.channel
-            "You are not a bot moderator")
+        if ctx.message.author.server_permissions.kick_members:
+            await bot.delete_message(ctx.message)
 
-            @client.event  # Chat filter
-            async def on_message(message):
-                contents = message.content.split(" ")  # contents is a list type
-                for word in contents:
-                    if word.upper() in chat_filter:
-                        if not message.author.id in bypass_list:
-                            try:
-                                await client.delete_message(message)
-                                await client.send_message(message.channel,
-                                                          "**Hey!** You're not allowed to use that word here!")
-                            except discord.errors.NotFound:
-                                return
+        try:
+            await bot.kick(user)
+            await bot.say(user.name + ' was kicked✅  Good bye ' + user.name + '!')
 
-                        @bot.command(pass_context=True)
+        except discord.Forbidden:
+            await bot.say(embed=Forbidden)
+            return
+        except discord.HTTPException:
+            await bot.say('kick failed.')
+            return
 
-                        @commands.has_permissions(kick_members=True)
-                        async def kick(ctx, user: discord.Member):
+            @bot.command(pass_context=True)
+                @commands.has_permissions(kick_members=True)
+                async def kick(ctx, user: discord.Member):
 
-                            if ctx.message.author.server_permissions.kick_members:
-                                await bot.delete_message(ctx.message)
+                    if ctx.message.author.server_permissions.kick_members:
+                        await bot.delete_message(ctx.message)
 
-                            try:
-                                await bot.kick(user)
-                                await bot.say(user.name + ' was kicked✅  Good bye ' + user.name + '!')
+                    try:
+                        await bot.kick(user)
+                        await bot.say(user.name + ' was kicked✅  Good bye ' + user.name + '!')
 
-                            except discord.Forbidden:
-                                await bot.say(embed=Forbidden)
-                                return
-                            except discord.HTTPException:
-                                await bot.say('kick failed.')
-                                return
+                    except discord.Forbidden:
+                        await bot.say(embed=Forbidden)
+                        return
+                    except discord.HTTPException:
+                        await bot.say('kick failed.')
+                        return
+
 
                                 # clear command
 
