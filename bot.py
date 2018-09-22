@@ -10,22 +10,6 @@ client = commands.Bot(commands_prefix = "!")
 @client.event #Console Message
 async def on_ready():
     print("Bot is online")
-
-    @client.event #!say
-    async def on_message(message):
-        if message.content.startswith('!ping'):
-            userID = message.author.id
-            await client.send_message(message.channel, "<@%s) Pong!" %  (userID))
-            if message.content.upper().startswith('!SAY'):
-                if message.content.upper().startswith('!SAY'):
-                    if message.author.id == "370000651352014850":
-                args = message.content.split("")
-                #args[0] = !say
-                #args[1] = Hey
-                #args[2] = There
-                #args[1:] = Hey There
-                await client.send_message(message.channel, "%s" % ("".join(args[1:])))
-            else:
                 @client.event #Bot Moderator Check
                 await client.send_message(message.channel, "You Can not perfrom this command!" )
                 if message.content.upper().startswith('!whois'):
