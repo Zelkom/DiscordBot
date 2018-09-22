@@ -1,8 +1,9 @@
 import discord
-from discord.ext.commands import Bot # <--- this line
+import discord.ext.commands import Bot
 from discord.ext import commands
 import asyncio
 import time
+
 
 Client = discord.Client()
 client = commands.Bot(commands_prefix = "!")
@@ -10,26 +11,30 @@ client = commands.Bot(commands_prefix = "!")
 @client.event #Console Message
 async def on_ready():
     print("Bot is online")
-                @client.event #Bot Moderator Check
-                await client.send_message(message.channel, "You Can not perfrom this command!" )
-                if message.content.upper().startswith('!whois'):
-                    if "370000651352014850" in [role.id for role in message.author.roles]:
-                        await client.send_message(message.channel "You are a bot moderator")
-                    else:
-                    await client.send_message(message.channel "You are not a bot moderator")
 
-                    @client.event #Chat filter
-                    async def on_message(message):
-                            contents = message.content.split("Nigger ")  # contents is a list type
-                            for word in contents:
-                                if word.upper() in chat_filter:
-                                    if not message.author.id in bypass_list:
-                                        try:
-                                            await client.delete_message(message)
-                                            await client.send_message(message.channel,
-                                                                      "**Hey!** You're not allowed to use that word here!")
-                                        except discord.errors.NotFound:
-                                                return
+    @client.event  # Bot Moderator Check
+
+    await client.send_message(message.channel, "You Can not perfrom this command!")
+    if message.content.upper().startswith('!whois'):
+        if "370000651352014850" in [role.id for role in message.author.roles]:
+            await client.send_message(message.channel
+            "You are a bot moderator")
+            else:
+            await client.send_message(message.channel
+            "You are not a bot moderator")
+
+            @client.event  # Chat filter
+            async def on_message(message):
+                contents = message.content.split(" ")  # contents is a list type
+                for word in contents:
+                    if word.upper() in chat_filter:
+                        if not message.author.id in bypass_list:
+                            try:
+                                await client.delete_message(message)
+                                await client.send_message(message.channel,
+                                                          "**Hey!** You're not allowed to use that word here!")
+                            except discord.errors.NotFound:
+                                return
 
                         @bot.command(pass_context=True)
 
@@ -155,7 +160,9 @@ async def on_ready():
 
 
 
-                          client.run(os.environ['BOT_TOKEN'])
+
+
+                            client.run:"(NDcwNDY5MTMzMzEwNDkyNjcy.Dnc_qQ.9ch2NGdH614bGGN6ZL8-vsixmiI)"
 
 
 
