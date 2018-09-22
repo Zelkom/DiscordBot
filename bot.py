@@ -32,7 +32,7 @@ async def on_ready():
 
             @bot.command(pass_context=True)
             @commands.has_permissions(kick_members=True)
-                async def kick(ctx, user: discord.Member):
+            async def kick(ctx, user: discord.Member):
 
                     if ctx.message.author.server_permissions.kick_members:
                         await bot.delete_message(ctx.message)
