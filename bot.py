@@ -6,7 +6,7 @@ import time
 
 #Herkou password WhyZerSobadAtlife2103i103iu01arunningfile%
 Client = discord.Client()
-client = commands.Bot(commands_prefix = "!")
+client = commands.Bot('commands_prefix' = "!")
 
 @client.event #Console Message
 async def on_ready():
