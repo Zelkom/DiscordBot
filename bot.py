@@ -31,7 +31,7 @@ async def on_ready():
             return
 
             @bot.command(pass_context=True)
-                @commands.has_permissions(kick_members=True)
+            @commands.has_permissions(kick_members=True)
                 async def kick(ctx, user: discord.Member):
 
                     if ctx.message.author.server_permissions.kick_members:
